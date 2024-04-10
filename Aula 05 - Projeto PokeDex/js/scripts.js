@@ -1,5 +1,10 @@
 
-
+const grupoGrama = ["bulbasaur","venusaur","ivysaur"]
+const grupoFogo = ["charmander","charmeleon","charizard"]
+const grupoAgua = ["squirtle","wartortle","blastoise"]
+const grupoInseto = ["caterpie","metapod","weedle","kakuna","butterfree","beedrill"]
+const grupoVoador = ["pidgey","pidgeotto","pidgeot"]
+const grupoTerra = ["rattata","raticate"]
 
 function carregarPokemons(){
 
@@ -23,13 +28,28 @@ function carregarPokemons(){
 
 function adicionarCardPokemon(pokemon){
 
+    console.log(pokemon)
     const imagemElemento = document.createElement("img")
     imagemElemento.setAttribute("src", pokemon.imagem)
 
     const textoElemento = document.createElement("h1")
     textoElemento.innerHTML = pokemon.name
+    if(grupoGrama.includes(pokemon.name)){
+        textoElemento.classList.add("grama")
+    }else if(grupoAgua.includes(pokemon.name)){
+        textoElemento.classList.add("agua")
+    }else if(grupoFogo.includes(pokemon.name)){
+        textoElemento.classList.add("fogo")
+    }else if(grupoTerra.includes(pokemon.name)){
+        textoElemento.classList.add("terra")
+    }else if(grupoInseto.includes(pokemon.name)){
+        textoElemento.classList.add("inseto")
+    }else if(grupoVoador.includes(pokemon.name)){
+        textoElemento.classList.add("voador")
+    }
 
     const divElemento = document.getElementById("conteudo-pokemon")
+    divElemento.classList.add("card")
     divElemento.appendChild(imagemElemento)
     divElemento.appendChild(textoElemento)
 
